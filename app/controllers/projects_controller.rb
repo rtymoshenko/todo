@@ -1,10 +1,12 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-
+#  before_action :authenticate_user!
   # GET /projects
   # GET /projects.json
   def index
     @projects = Project.all
+    @tasks = Task.all.where(deadline: Date.today)
+    @project = Project.new
   end
 
   # GET /projects/1
@@ -24,7 +26,7 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    @project = Project.new(project_params)
+    @project = current_user.projects.new(project_params)
 
     respond_to do |format|
       if @project.save
@@ -54,6 +56,9 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
+    unless @project.tasks.empty?
+      @project.tasks.map { |t| t.destroy }
+    end
     @project.destroy
     respond_to do |format|
       format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }

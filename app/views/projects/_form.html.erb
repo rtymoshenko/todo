@@ -12,13 +12,13 @@
   <% end %>
 
   <div class="field">
+    <div class="field">
+      <%= f.color_field :color, :value => "#ff0000" %>
+    </div>
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :color %><br>
-    <%= f.text_field :color %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

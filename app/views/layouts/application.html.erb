@@ -2,13 +2,34 @@
 <html>
 <head>
   <title>Todo</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all'%>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
+<header class="navbar navbar-dark bg-primary">
+  <div class="container-fluid">
+
+    <a class="navbar-brand" href="<%= root_path %>">TODO</a>
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            <li><%= link_to image_tag("Search.png", border: 0), root_path, {class: 'layer2'}
+            %></li>
+            <li><%= link_to 'Account', edit_user_registration_path %></li>
+            <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to 'Sign up', new_user_registration_path %></li>
+            <li><%= link_to 'Sign in', new_user_session_path %></li>
+        </ul>
+    <% end %>
+
+  </div>
+</header>
+
+
 <%= yield %>
+
 
 </body>
 </html>
