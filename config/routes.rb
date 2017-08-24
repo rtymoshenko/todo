@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root to: "projects#index"
+  root to: 'projects#index'
   resources :tasks
   resources :projects
+  get 'next_seven_days' =>'tasks#next_seven_days'
+  get 'today' =>'tasks#today'
+  get 'projects/:project_id/search' => 'tasks#search', as: :search
+  get 'completed' => 'tasks#completed', as: :completed_tasks
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

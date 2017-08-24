@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :find_project, only: :search
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   # GET /tasks
@@ -19,6 +20,32 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
+  end
+
+  def search
+    @overdue_tasks = @project.tasks.where('deadline < ?', Date.today).where(status: false).order("priority DESC")
+    @tasks = @project.tasks.where('deadline >= ?', Date.today).where(status: false).order("priority DESC")
+    respond_to do |format|
+      format.js { }
+    end
+  end
+
+  def today
+    @tasks = current_user.tasks.where(deadline: Date.today).where(status: false).order("priority DESC")
+  end
+
+  def next_seven_days
+    @tasks = current_user.tasks.where('deadline > ?', Date.today).where('deadline <= ?', Date.today+7).where(status: false).order("priority DESC")
+    respond_to do |format|
+      format.js { }
+    end
+  end
+
+  def completed
+    @tasks = current_user.tasks.where(status: true)
+    respond_to do |format|
+      format.js { }
+    end
   end
 
   # POST /tasks
@@ -62,6 +89,10 @@ class TasksController < ApplicationController
   end
 
   private
+  def find_project
+      @project = current_user.projects.find(params[:project_id])
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_task
       @task = Task.find(params[:id])

@@ -16,70 +16,96 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 
 $white_color: white;
 
-.navbar-nav > li, .navbar-nav > li {
-  background-color: #337ab7;
-  color: $white_color;
-  a:visited {
-    color: $white_color;
-  }
-
-  a:hover {
+.navbar {
+  margin-bottom: 0px;
+  a:visited, a:hover  {
+    color: $white_color !important;
     background-color: #337ab7;
   }
 
+  li {
+    a:visited, a:hover {
+      color: $white_color !important;
+      background-color: #337ab7;
+    }
+  }
 }
 
-
-
- a:visited {
-  color: $white_color;
+a, a:visited,a:hover, a:active  {
+  color: dimgrey !important;
 }
-
-
 
 .layer2 {
-  position: absolute; /* Абсолютное позиционирование */
-  right: 700px; /* Положение от правого края */
-  line-height: 1px;
+  position: absolute;
+  right: 310px;
+
+  background-color: #337ab7;
 }
 
-header.navbar {
-  margin-bottom: 0px;
-}
-
-
-html {
+html, body {
   height: 100%;
+  overflow-y: hidden;
 }
 
-body {
-  height: 100%;
-}
-
-#left {
+.left {
   float: left;
   height: 100%;
   width: 25%;
-  background-color: grey;
+  background-color: lightgrey;
 }
 
-#center {
+.center {
   float: left;
   height: 100%;
   width: 50%;
-  background-color: blue;
+  background-color: white;
 }
 
-#right {
+.right {
   float: left;
   height: 100%;
   width: 25%;
-  background-color: yellow;
+  background-color: lightgrey;
 }
 
 div {
   margin: 0px;
+}
+
+.container {
+  border: 1px solid grey;
+  width: 55%;
+  border-radius: 0 0 15px 15px;
+  padding: 10px 10px 15px 10px;
+  background-color: #337ab7;
+}
+
+body {
+  background: -webkit-linear-gradient(0deg, #D38312 0%, #e0e0d1 60%, #ccd1b3 100%);
+  background: -moz-linear-gradient(0deg, #D38312 0%, #e0e0d1 60%, #ccd1b3 100%);
+  background: -ms-linear-gradient(0deg, #D38312 0%, #e0e0d1 60%, #ccd1b3 100%);
+  background: -o-linear-gradient(0deg, #D38312 0%, #e0e0d1 60%, #ccd1b3 100%);
+  background: linear-gradient(0deg, #D38312 0%, #e0e0d1 60%, #ccd1b3 100%);
+}
+
+h6 > span, h4 > span {
+  color: dimgrey;
+  font-size: 10px;
+}
+
+.circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  display: inline-block;
+}
+
+.square {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
 }

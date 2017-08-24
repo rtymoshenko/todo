@@ -12,14 +12,12 @@
   <% end %>
 
   <div class="field">
-    <div class="field">
-      <%= f.color_field :color, :value => "#ff0000" %>
-    </div>
-    <%= f.label :name %><br>
+
+    <%= f.color_field :color, :value => "#ff0000" %>
     <%= f.text_field :name %>
   </div>
-
+    <br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Add', class: "btn btn-primary" %>
   </div>
 <% end %>

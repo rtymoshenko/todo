@@ -1,0 +1,2 @@
+$('#all_tasks').empty();
+$('<%= escape_javascript(render @tasks ) %>').appendTo('#all_tasks');
