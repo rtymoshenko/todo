@@ -17,6 +17,7 @@
 $(document).ready(function () {
 
   $("#project_form").hide();
+  $("#task_form").hide();
 
   $("#add_project_form").on('click', function () {
     $("#project_form").show();
@@ -24,7 +25,22 @@ $(document).ready(function () {
     return false;
   });
 
+  $("#add_task_form").on('click', function () {
+    $("#task_form").show();
+    $("#add_task_form").hide();
+    return false;
+  });
+
   $(".project_row").hover(
+      function () {
+        $(this).find("#ellipsis").removeClass("hide");
+      },
+      function () {
+        $(this).find("#ellipsis").addClass("hide");
+      }
+  );
+
+  $(".task_row").hover(
       function () {
         $(this).find("#ellipsis").removeClass("hide");
       },

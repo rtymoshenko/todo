@@ -10,15 +10,13 @@
     <h6 style="text-decoration: underline;"><b>Projects</b></h6>
     <table>
       <tbody>
-      <% @projects.each do |project| %>
-        <%= render project %>
-      <% end %>
+          <%= render @projects %>
       </tbody>
     </table>
 
     <%= render 'form' %>
 
-    <%= link_to  '', id: 'add_project_form' do %>
+    <%= link_to '', id: 'add_project_form' do %>
         <span style="color:red">+ Add</span>
     <% end %>
   </div>
@@ -28,17 +26,19 @@
 
 <div class="center">
   <div style="margin-left: 20px; margin-right: 20px">
-    <h4>Today <span class="low_grey"><%= DateTime.current.strftime("%a %d %b") %></span></h4>
-    <div id='all_tasks'>
-      <table>
-        <tbody>
-        <% @tasks.each do |task| %>
-            <%= render task %>
-        <% end %>
-        </tbody>
-      </table>
-    </div>
+    <h4>Today <span class="low_grey"><%= Date.today.strftime("%a %d %b") %></span></h4>
+    <table>
+      <tbody id='all_tasks'>
+      <%= render @tasks %>
+      </tbody>
+    </table>
+    <%= render 'tasks/form' %>
+
+    <%= link_to '', id: 'add_task_form' do %>
+        <span style="color:red">+ Add</span>
+    <% end %>
   </div>
+
 </div>
 
 

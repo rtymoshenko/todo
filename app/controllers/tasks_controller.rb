@@ -26,7 +26,7 @@ class TasksController < ApplicationController
     @overdue_tasks = @project.tasks.where('deadline < ?', Date.today).where(status: false).order("priority DESC")
     @tasks = @project.tasks.where('deadline >= ?', Date.today).where(status: false).order("priority DESC")
     respond_to do |format|
-      format.js { }
+      format.js {}
     end
   end
 
@@ -37,14 +37,14 @@ class TasksController < ApplicationController
   def next_seven_days
     @tasks = current_user.tasks.where('deadline > ?', Date.today).where('deadline <= ?', Date.today+7).where(status: false).order("priority DESC")
     respond_to do |format|
-      format.js { }
+      format.js {}
     end
   end
 
   def completed
     @tasks = current_user.tasks.where(status: true)
     respond_to do |format|
-      format.js { }
+      format.js {}
     end
   end
 
@@ -52,14 +52,13 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
-
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
-        format.json { render :show, status: :created, location: @task }
+        format.html {redirect_to @task, notice: 'Task was successfully created.'}
+        format.json {render :show, status: :created, location: @task}
       else
-        format.html { render :new }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
+        format.html {render :new}
+        format.json {render json: @task.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -69,11 +68,11 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
-        format.json { render :show, status: :ok, location: @task }
+        format.html {redirect_to @task, notice: 'Task was successfully updated.'}
+        format.json {render :show, status: :ok, location: @task}
       else
-        format.html { render :edit }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
+        format.html {render :edit}
+        format.json {render json: @task.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -83,23 +82,23 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html {redirect_to tasks_url, notice: 'Task was successfully destroyed.'}
+      format.json {head :no_content}
     end
   end
 
   private
   def find_project
-      @project = current_user.projects.find(params[:project_id])
+    @project = current_user.projects.find(params[:project_id])
   end
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_task
-      @task = Task.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_task
+    @task = Task.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def task_params
-      params.require(:task).permit(:name, :priority, :deadline, :status, :project_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def task_params
+    params.require(:task).permit(:name, :priority, :deadline_format, :status, :project_id)
+  end
 end

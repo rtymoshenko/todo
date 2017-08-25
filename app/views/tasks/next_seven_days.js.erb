@@ -1,2 +1,2 @@
-$('#all_tasks').empty();
+$('#all_tasks').children().remove();
 $('<%= escape_javascript(render @tasks ) %>').appendTo('#all_tasks');

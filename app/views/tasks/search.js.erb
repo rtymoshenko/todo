@@ -1,5 +1,6 @@
 $('#all_tasks').children().remove();
-$('<%= escape_javascript(render @tasks ) %>').appendTo('#all_tasks');
+$('<%= escape_javascript(render @overdue_tasks) %>').appendTo('#all_tasks');
+$('<%= escape_javascript(render @tasks) %>').appendTo('#all_tasks');
 
 $(".task_row").hover(
     function () {

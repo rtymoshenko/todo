@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
     @projects = current_user.projects
     @tasks = current_user.tasks.where(deadline: Date.today).where(status: false).order("priority DESC")
     @project = Project.new
+    @task = Task.new
   end
 
   # GET /projects/1

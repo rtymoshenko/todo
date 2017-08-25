@@ -1,0 +1,17 @@
+<tr class="task_row" style="border-bottom: 1px solid #ccc;">
+  <td width="20px">
+    <div class="square" style="background: <%= task.priority %>;"></div>
+  </td>
+  <td width="450px" class="task_name" style="color:<%= 'red' if Date.today > task.deadline && task.status == false %>">
+    <%= task.name %>
+  </td>
+  <td width="100px" class="task_name">
+    <%= task.project.name %>
+  </td>
+  <td width="20px">
+    <div class="circle" style="background:<%= task.project.color%>;"></div>
+  </td>
+  <td width="10px" id="ellipsis" class="hide">
+    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+  </td>
+</tr>

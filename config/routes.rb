@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   get 'projects/:project_id/search' => 'tasks#search', as: :search
   get 'completed' => 'tasks#completed', as: :completed_tasks
 
+  resources :tasks do
+
+  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
