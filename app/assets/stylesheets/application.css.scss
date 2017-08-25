@@ -22,27 +22,26 @@ $white_color: white;
 
 .navbar {
   margin-bottom: 0px;
-  a:visited, a:hover  {
+  a:visited, a:hover, a:link  {
     color: $white_color !important;
     background-color: #337ab7;
   }
 
   li {
-    a:visited, a:hover {
+    a:visited, a:hover, a:link {
       color: $white_color !important;
       background-color: #337ab7;
     }
   }
 }
 
-a, a:visited,a:hover, a:active  {
+a:visited,a:hover, a:active, a:link  {
   color: dimgrey !important;
 }
 
 .layer2 {
   position: absolute;
-  right: 310px;
-
+  right: 370%;
   background-color: #337ab7;
 }
 
@@ -92,9 +91,13 @@ body {
   background: linear-gradient(0deg, #D38312 0%, #e0e0d1 60%, #ccd1b3 100%);
 }
 
-h6 > span, h4 > span {
+.low_grey {
   color: dimgrey;
-  font-size: 10px;
+  font-size: 9px;
+}
+.project_name {
+  color: dimgrey;
+  font-size: 13px;
 }
 
 .circle {

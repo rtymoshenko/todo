@@ -1,0 +1,9 @@
+<tr class="project_row">
+  <td width="20px">
+    <div class="circle" style="background:<%= project.color%>;"></div>
+  </td>
+  <td width="170px" class="project_name"><%= link_to project.name, search_path(project), remote: true %>
+    <span class="low_grey"><%= project.tasks.count %></span></td>
+  <td width="10px" id="ellipsis" class="hide"><i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+  </td>
+</tr>

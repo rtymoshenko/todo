@@ -13,3 +13,24 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function () {
+
+  $("#project_form").hide();
+
+  $("#add_project_form").on('click', function () {
+    $("#project_form").show();
+    $("#add_project_form").hide();
+    return false;
+  });
+
+  $(".project_row").hover(
+      function () {
+        $(this).find("#ellipsis").removeClass("hide");
+      },
+      function () {
+        $(this).find("#ellipsis").addClass("hide");
+      }
+  );
+
+});

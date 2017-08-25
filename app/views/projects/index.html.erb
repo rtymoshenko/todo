@@ -2,81 +2,45 @@
   <p id="notice"><%= notice %></p>
 
   <div style="margin-left:30%;">
-    <h6><b><%= link_to 'Today', today_path, remote: true %></b><span><%= current_user.tasks.where(deadline: Date.today).count %></span>
+    <h6><b><%= link_to 'Today', today_path, remote: true %></b>
+      <span class="low_grey"><%= current_user.tasks.where(deadline: Date.today).count %></span>
     </h6>
     <h6><b><%= link_to 'Next 7 days', next_seven_days_path, remote: true %></b></h6>
     <br>
     <h6 style="text-decoration: underline;"><b>Projects</b></h6>
     <table>
-      <thead>
-      <tr>
-        <th>Name</th>
-        <th>Color</th>
-        <th colspan="3"></th>
-      </tr>
-      </thead>
-
       <tbody>
-
       <% @projects.each do |project| %>
-          <% if project.user == current_user %>
-              <div class="circle" style="background:<%= project.color%>;"></div>
-              <h6 style=" display: inline;"> &nbsp;&nbsp; <%= link_to project.name, search_path(project), remote: true %><span><%= project.tasks.count %></span></h6>
-              <br>
-              <tr>
-                <td><%= project.name %><span><%= project.tasks.count %></span></td>
-                <td><%= project.color %>
-                  <div class="circle" style="background: <%= project.color%>;"></div>
-                </td>
-                <td><%= link_to 'Show', project %></td>
-                <td><%= link_to 'Edit', edit_project_path(project) %></td>
-                <td><%= link_to 'Destroy', project, method: :delete, data: {confirm: 'Are you sure?'} %></td>
-              </tr>
-          <% end %>
+        <%= render project %>
       <% end %>
       </tbody>
     </table>
-    <%= link_to 'New Project', new_project_path %>
 
     <%= render 'form' %>
+
+    <%= link_to  '', id: 'add_project_form' do %>
+        <span style="color:red">+ Add</span>
+    <% end %>
   </div>
 
 </div>
 
 
 <div class="center">
-  <h4>Today <span><%= DateTime.current.strftime("%a %d %b") %></span></h4>
-  <div id='all_tasks'>
-    <%= link_to 'New Project', new_project_path %>
-
-    <table>
-      <thead>
-      <tr>
-        <th>Name</th>
-        <th>Color</th>
-        <th colspan="3"></th>
-      </tr>
-      </thead>
-
-      <tbody>
-      <% @tasks.each do |task| %>
-          <% if task.project.user == current_user %>
-              <tr>
-                <div class="square" style="background:blue;"></div>
-                <td><%= task.name %></td>
-                <td><%= task.priority %></td>
-                <td><%= link_to 'Show', task %></td>
-                <td><%= link_to 'Edit', edit_task_path(task) %></td>
-                <td><%= link_to 'Destroy', task, method: :delete, data: {confirm: 'Are you sure?'} %></td>
-          <% end %>
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
-    <hr>
-
+  <div style="margin-left: 20px; margin-right: 20px">
+    <h4>Today <span class="low_grey"><%= DateTime.current.strftime("%a %d %b") %></span></h4>
+    <div id='all_tasks'>
+      <table>
+        <tbody>
+        <% @tasks.each do |task| %>
+            <%= render task %>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
+
 
 <div class="right">
 </div>
