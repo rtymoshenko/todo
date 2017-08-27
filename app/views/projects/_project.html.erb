@@ -4,6 +4,12 @@
   </td>
   <td width="170px" class="project_name"><%= link_to project.name, search_path(project), remote: true %>
     <span class="low_grey"><%= project.tasks.count %></span></td>
-  <td width="10px" id="ellipsis" class="hide"><i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+  <td width="10px" id="ellipsis" class="hide">
+    <i class="fa fa-ellipsis-v" aria-hidden="true">
+      <ul class="menu hide">
+        <li><%= link_to 'Edit', edit_project_path(project), remote: true %></li>
+        <li><%= link_to 'Delete', project_path(project), method: :delete, class: "delete_task" %></li>
+      </ul>
+    </i>
   </td>
 </tr>

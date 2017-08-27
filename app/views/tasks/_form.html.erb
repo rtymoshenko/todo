@@ -1,29 +1,27 @@
-<div id="task_form">
-  <%= form_for(@task) do |f| %>
-      <div class="field" style="float: left; margin-top: 3px; width: 450px; height: 35px; border: 1px solid grey;">
-        <%= f.text_field :name, size: '54', style: 'border: none; margin-top: 5px;' %>
-      </div>
-      <div class="field" style="float: left; margin-top: 3px; width: 140px; height: 35px; border: 1px solid grey;">
-        <%= f.text_field :deadline_format, size: '15', style: 'border: none; margin-top: 5px;' %>
-      </div>
-      <br>
-      <div class="field">
-        <%= f.label :priority %><br>
-        <%= f.text_field :priority %>
-      </div>
+<%= form_for(@task) do |f| %>
+    <div class="field" style="float: left; margin-top: 3px; width: 445px; height: 35px; border: 1px solid grey;">
+      <%= f.text_field :name, size: '52', style: 'border: none; margin-top: 5px;' %>
+    </div>
+    <div class="field" style="float: left; margin-top: 3px; width: 112px; height: 35px; border: 1px solid grey;">
+      <%= f.text_field :deadline_format, size: '12', style: 'border: none; margin-top: 5px;' %>
+    </div>
+    <br>
+    <div class="field">
+      <%= f.label :priority %><br>
+      <%= f.text_field :priority %>
+    </div>
 
-      <div class="field">
-        <%= f.label :status %><br>
-        <%= f.check_box :status %>
-      </div>
-      <div class="field">
-        <%= f.label :project_id %><br>
-        <%= f.text_field :project_id %>
-      </div>
-      <br>
-      <div class="actions">
-        <%= f.submit 'Add', class: 'btn btn-primary', style: 'width:100px;' %>
-        <%= link_to 'Cancel' %>
-      </div>
-  <% end %>
-</div>
+    <div class="field">
+      <%= f.label :status %><br>
+      <%= f.check_box :status %>
+    </div>
+    <div class="field">
+      <%= f.label :project_id %><br>
+      <%= f.text_field :project_id %>
+    </div>
+    <br>
+    <div class="actions">
+      <%= f.submit 'Add', class: 'btn btn-primary', style: 'width:100px;' %>
+      <%= link_to 'Cancel', cancel_task_form_path, remote: true %>
+    </div>
+<% end %>

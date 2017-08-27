@@ -32,11 +32,12 @@
       <%= render @tasks %>
       </tbody>
     </table>
-    <%= render 'tasks/form' %>
 
-    <%= link_to '', id: 'add_task_form' do %>
-        <span style="color:red">+ Add</span>
-    <% end %>
+    <div id="task_form">
+    </div>
+
+    <%= link_to '+ Add', new_task_path(@task), remote: true, style: "color:red !important", id: "add_task_form" %>
+
   </div>
 
 </div>

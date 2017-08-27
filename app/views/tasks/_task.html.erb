@@ -12,6 +12,12 @@
     <div class="circle" style="background:<%= task.project.color%>;"></div>
   </td>
   <td width="10px" id="ellipsis" class="hide">
-    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+    <i class="fa fa-ellipsis-v" aria-hidden="true">
+      <ul class="menu hide">
+        <li><%= link_to 'Edit', edit_task_path(task), remote: true %></li>
+        <li><%= link_to 'Delete', task_path(task), method: :delete, class: "delete_task" %></li>
+        <li><%= link_to 'Done', complete_task_path(task), method: :patch, remote: true, class: "complete_task" %></li>
+      </ul>
+    </i>
   </td>
 </tr>

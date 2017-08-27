@@ -17,7 +17,7 @@
 $(document).ready(function () {
 
   $("#project_form").hide();
-  $("#task_form").hide();
+
 
   $("#add_project_form").on('click', function () {
     $("#project_form").show();
@@ -25,7 +25,7 @@ $(document).ready(function () {
     return false;
   });
 
-  $("#add_task_form").on('click', function () {
+  $(".add_task_form").on('click', function () {
     $("#task_form").show();
     $("#add_task_form").hide();
     return false;
@@ -46,6 +46,15 @@ $(document).ready(function () {
       },
       function () {
         $(this).find("#ellipsis").addClass("hide");
+      }
+  );
+
+  $("td>.fa").hover(
+      function () {
+        $(this).find(".menu").removeClass("hide");
+      },
+      function () {
+        $(this).find(".menu").addClass("hide");
       }
   );
 

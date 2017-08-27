@@ -1,0 +1,3 @@
+$('#task_form').children().remove();
+$('<%= escape_javascript(render 'form' ) %>').appendTo('#task_form');
+$("#add_task_form").hide();

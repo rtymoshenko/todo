@@ -2,16 +2,17 @@ Rails.application.routes.draw do
 
   devise_for :users
   root to: 'projects#index'
-  resources :tasks
+  resources :tasks do
+    member do
+      patch :complete
+    end
+  end
   resources :projects
   get 'next_seven_days' =>'tasks#next_seven_days'
   get 'today' =>'tasks#today'
   get 'projects/:project_id/search' => 'tasks#search', as: :search
   get 'completed' => 'tasks#completed', as: :completed_tasks
-
-  resources :tasks do
-
-  end
+  get 'cancel_task_form' => 'tasks#cancel'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

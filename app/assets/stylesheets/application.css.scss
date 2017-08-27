@@ -114,3 +114,17 @@ body {
   height: 10px;
   display: inline-block;
 }
+
+.fa {
+  position: relative;
+}
+
+/* Меню */
+
+.menu {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #fcf8e3;
+}

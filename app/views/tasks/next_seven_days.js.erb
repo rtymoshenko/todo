@@ -1,2 +1,20 @@
 $('#all_tasks').children().remove();
 $('<%= escape_javascript(render @tasks ) %>').appendTo('#all_tasks');
+
+$(".task_row").hover(
+    function () {
+      $(this).find("#ellipsis").removeClass("hide");
+    },
+    function () {
+      $(this).find("#ellipsis").addClass("hide");
+    }
+);
+
+$("td>.fa").hover(
+    function () {
+      $(this).find(".menu").removeClass("hide");
+    },
+    function () {
+      $(this).find(".menu").addClass("hide");
+    }
+);

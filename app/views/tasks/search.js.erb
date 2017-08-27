@@ -10,3 +10,12 @@ $(".task_row").hover(
       $(this).find("#ellipsis").addClass("hide");
     }
 );
+
+$("td>.fa").hover(
+    function () {
+      $(this).find(".menu").removeClass("hide");
+    },
+    function () {
+      $(this).find(".menu").addClass("hide");
+    }
+);
