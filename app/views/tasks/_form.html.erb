@@ -1,13 +1,13 @@
 <%= form_for(@task) do |f| %>
     <div class="field">
-      <%= f.text_field :name, size: '55', style: 'border: 1px solid grey; margin-top: 5px; padding: 5px' %>
-      <%= f.text_field :deadline_format, size: '10', style: 'border: 1px solid grey; margin-top: 5px;  padding: 5px' %>
+      <%= f.text_field :name, size: '55', style: 'border: 1px solid grey; margin-top: 5px; padding: 5px; width: 70%;' %>
+      <%= f.text_field :deadline_format, size: '10', style: 'border: 1px solid grey; margin-top: 5px;  padding: 5px 5px 5px 5px; width: 29%;' %>
     </div>
-    <div style="width:300px;margin-top: 5px; float:left;">
+    <div style="width: 40%;margin-top: 5px; float: left;">
       <%= f.submit 'Add', class: 'btn btn-primary', style: 'width:100px;' %>
       <%= link_to 'Cancel', cancel_task_form_path, remote: true %>
     </div>
-    <div class="field" style="width:300px; float:left; margin-top: 5px;">
+    <div class="field" style="width: 60%; float: left; margin-top: 5px; text-align: right;">
       <%= f.label :priority %>
       <%= f.select :priority, Task.priorities.keys %>
       <%= f.label :status %>

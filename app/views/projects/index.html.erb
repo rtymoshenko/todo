@@ -25,13 +25,13 @@
 <div class="center">
   <div style="margin-left: 20px; margin-right: 20px">
     <h4>Today <span class="low_grey"><%= Date.today.strftime("%a %d %b") %></span></h4>
-    <table>
-      <tbody id='all_tasks' width="100%" >
+    <table style="width: 100%">
+      <tbody id='all_tasks'>
       <%= render @tasks %>
       </tbody>
     </table>
 
-    <div id="task_form">
+    <div id="task_form" style="width: 100%">
     </div>
 
     <%= link_to '+ Add', new_task_path(@task), remote: true, style: "color:red !important", id: "add_task_form" %>
