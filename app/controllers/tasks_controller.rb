@@ -100,6 +100,7 @@ class TasksController < ApplicationController
   # DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy
+    binding.pry
     @task.destroy
     respond_to do |format|
       format.html {redirect_to root_path, notice: 'Task was successfully destroyed.'}

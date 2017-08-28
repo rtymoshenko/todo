@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'projects/:project_id/search' => 'tasks#search', as: :search
   get 'completed' => 'tasks#completed', as: :completed_tasks
   get 'cancel_task_form' => 'tasks#cancel'
+  get 'cancel_project_form' => 'projects#cancel'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

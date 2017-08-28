@@ -14,8 +14,8 @@
     <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
           <li><%= link_to completed_tasks_path, remote: true, method: :get, class: 'layer2' do %>
-            <i class="fa fa-ban"></i>
-          <% end %>
+                <i class="fa fa-ban"></i>
+            <% end %>
           </li>
           <li><%= link_to 'Account', edit_user_registration_path %></li>
           <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>

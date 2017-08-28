@@ -13,12 +13,10 @@
           <%= render @projects %>
       </tbody>
     </table>
+    <div id="project_form">
 
-    <%= render 'form' %>
-
-    <%= link_to '', id: 'add_project_form' do %>
-        <span style="color:red">+ Add</span>
-    <% end %>
+    </div>
+    <%= link_to '+ Add', new_project_path(@project), remote: true, style: "color:red !important", id: "add_project_form" %>
   </div>
 
 </div>
@@ -28,7 +26,7 @@
   <div style="margin-left: 20px; margin-right: 20px">
     <h4>Today <span class="low_grey"><%= Date.today.strftime("%a %d %b") %></span></h4>
     <table>
-      <tbody id='all_tasks'>
+      <tbody id='all_tasks' width="100%" >
       <%= render @tasks %>
       </tbody>
     </table>

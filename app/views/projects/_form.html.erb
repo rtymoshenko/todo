@@ -1,13 +1,11 @@
-<div id="project_form">
-  <%= form_for(@project) do |f| %>
-      <div class="field" style="width: 200px; height: 35px; background-color: white; border: 1px solid grey;">
-        <%= f.color_field :color, :value => '#ff0000', style: 'margin-top: 5px; border: none' %>
-        <%= f.text_field :name, size: '17', style: 'border: none' %>
-      </div>
-      <br>
-      <div class="actions">
-        <%= f.submit 'Add', class: 'btn btn-primary', style: 'width:100px;' %>
-        <%= link_to 'Cancel' %>
-      </div>
-  <% end %>
-</div>
+<%= form_for(@project) do |f| %>
+    <div class="field" style="width: 200px; height: 35px; background-color: white; border: 1px solid grey;">
+      <%= f.color_field :color, :value => '#ff0000', style: 'margin-top: 5px; border: none' %>
+      <%= f.text_field :name, size: '17', style: 'border: none' %>
+    </div>
+    <br>
+    <div class="actions">
+      <%= f.submit 'Add', class: 'btn btn-primary', style: 'width:100px;' %>
+      <%= link_to 'Cancel', cancel_project_form_path, remote: true %>
+    </div>
+<% end %>

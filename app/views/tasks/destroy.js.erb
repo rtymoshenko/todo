@@ -1,3 +1,4 @@
 $('.delete_task').bind('ajax:success', function () {
   $(this).closest('.task_row').fadeOut()
 });
+$(".project_count_<%= @task.project.id %>").html("<%= @task.project.tasks.count%>");

@@ -15,7 +15,7 @@
     <i class="fa fa-ellipsis-v" aria-hidden="true">
       <ul class="menu hide">
         <li><%= link_to 'Edit', edit_task_path(task), remote: true %></li>
-        <li><%= link_to 'Delete', task_path(task), method: :delete, class: "delete_task" %></li>
+        <li><%= link_to 'Delete', task_path(task), remote: true, method: :delete, class: "delete_task" %></li>
         <li><%= link_to 'Done', complete_task_path(task), method: :patch, remote: true, class: "complete_task" %></li>
       </ul>
     </i>
