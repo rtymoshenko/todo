@@ -1,27 +1,18 @@
 <%= form_for(@task) do |f| %>
-    <div class="field" style="float: left; margin-top: 3px; width: 445px; height: 35px; border: 1px solid grey;">
-      <%= f.text_field :name, size: '52', style: 'border: none; margin-top: 5px;' %>
-    </div>
-    <div class="field" style="float: left; margin-top: 3px; width: 112px; height: 35px; border: 1px solid grey;">
-      <%= f.text_field :deadline_format, size: '12', style: 'border: none; margin-top: 5px;' %>
-    </div>
-    <br>
     <div class="field">
-      <%= f.label :priority %><br>
-      <%= f.text_field :priority %>
+      <%= f.text_field :name, size: '55', style: 'border: 1px solid grey; margin-top: 5px; padding: 5px' %>
+      <%= f.text_field :deadline_format, size: '10', style: 'border: 1px solid grey; margin-top: 5px;  padding: 5px' %>
     </div>
-
-    <div class="field">
-      <%= f.label :status %><br>
-      <%= f.check_box :status %>
-    </div>
-    <div class="field">
-      <%= f.label :project_id %><br>
-      <%= f.text_field :project_id %>
-    </div>
-    <br>
-    <div class="actions">
+    <div style="width:300px;margin-top: 5px; float:left;">
       <%= f.submit 'Add', class: 'btn btn-primary', style: 'width:100px;' %>
       <%= link_to 'Cancel', cancel_task_form_path, remote: true %>
+    </div>
+    <div class="field" style="width:300px; float:left; margin-top: 5px;">
+      <%= f.label :priority %>
+      <%= f.select :priority, Task.priorities.keys %>
+      <%= f.label :status %>
+      <%= f.check_box :status %>
+      <%= f.label :project_id %>
+      <%= f.select :project_id, options_from_collection_for_select(Project.all, "id", "name") %>
     </div>
 <% end %>
